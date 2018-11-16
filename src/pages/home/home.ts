@@ -11,4 +11,11 @@ export class HomePage {
 
   }
 
+  prevSlide(){
+
+  }
+
+  nextSlide(){
+
+  }
 }

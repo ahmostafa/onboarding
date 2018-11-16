@@ -1,14 +1,34 @@
-<ion-header>
-  <ion-navbar>
+<!--<ion-header>
+    <ion-navbar>
     <ion-title>
       Ionic Blank
     </ion-title>
-  </ion-navbar>
-</ion-header>
+  </ion-navbar> 
+</ion-header>-->
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+    <!-- The world is your oyster.
+    <p>
+        If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+    </p> -->
+    <ion-slides #slides pager="true" paginationType="bullets">
+        <ion-slide style="background-color:red; color:white">
+            <h1>Slide 1</h1>
+        </ion-slide>
+        <ion-slide>
+            <h1>Slide 2</h1>
+        </ion-slide>
+        <ion-slide>
+            <h1>Slide 3</h1>
+        </ion-slide>
+        <!-- <button type="submit" float-left ion-button color="primary" class="swiper-button-prev" (click)="prev()"></button>
+        <button type="submit" float-right ion-button color="primary" class="swiper-button-next" (click)="next()"></button> -->
+        <!-- <button type="submit" ion-button color="light" class="swiper-button-prev swiper-button-white" (click)="prevSlide()"></button>
+        <button type="submit" ion-button icon-only color="light" class="swiper-button-next swiper-button-white" (click)="nextSlide()">
+          <ion-icon name="md-arrow-dropright"></ion-icon>
+        </button> -->
+        <button ion-button icon-only class="swiper-button-prev"> <ion-icon color="light"  name="md-arrow-dropleft"></ion-icon></button>
+        <button ion-button icon-only class="swiper-button-next"><ion-icon color="light" name="md-arrow-dropright"></ion-icon></button>
+    </ion-slides>
+
 </ion-content>
