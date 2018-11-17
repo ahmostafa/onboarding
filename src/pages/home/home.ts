@@ -1,3 +1,4 @@
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { SlidesActionsMap } from './../../serverconnect/slideactionmap';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController,Slides } from 'ionic-angular';
@@ -14,7 +15,7 @@ export class HomePage implements OnInit {
   errMsg:string;
   isHidePrevButton:boolean = true;
   constructor(public navCtrl: NavController,
-    private onBoardingProvider: OnBoardingProvider) {
+    private onBoardingProvider: OnBoardingProvider, private inAppBrowser: InAppBrowser) {
 
   }
 
@@ -42,6 +43,7 @@ export class HomePage implements OnInit {
     return SlidesActionsMap.has(identifier);
   }
   openActionUrl(identifier:string){
+    this.inAppBrowser.create(SlidesActionsMap.get(identifier)).show();
     console.log(SlidesActionsMap.get(identifier));
   }
 }

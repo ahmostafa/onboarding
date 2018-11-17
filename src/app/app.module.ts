@@ -9,7 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { baseURL } from '../serverconnect/baseurl';
 import { OnBoardingProvider } from '../providers/on-boarding/on-boarding';
 import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
-import { HttpModule } from "@angular/http";
+import { HttpModule } from '@angular/http';
+import {InAppBrowser} from '@ionic-native/in-app-browser';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HttpModule } from "@angular/http";
     {provide:'BaseURL',useValue: baseURL},
     OnBoardingProvider,
     ProcessHttpmsgProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}
