@@ -6,9 +6,9 @@
   </ion-navbar> 
 </ion-header>-->
 
-<ion-content>
-
-    <ion-slides *ngIf="onBoardingSlides" effect="fade" speed="400" pager="true" paginationType="bullets" style="font-family: 'Roboto Condensed', sans-serif;" #slides>
+<ion-content no-bounce class="page-home">
+    <!-- <div ion-fixed> -->
+    <ion-slides *ngIf="onBoardingSlides" (ionSlideDidChange)="slideChanged()" effect="fade" speed="400" pager="true" paginationType="bullets" style="font-family: 'Roboto Condensed', sans-serif;" #slides>
         <!-- <ion-slide class="custom-slide" style="background-color:red; color:white;">
             <img src='https://via.placeholder.com/200' style="width: 100px; height: 100px;" />
             <h1>Welcome my friend!</h1>
@@ -23,6 +23,11 @@
         </ion-slide> -->
 
         <ion-slide *ngFor="let onBoardingSlide of onBoardingSlides" class="slides-container" [ngStyle]="{'background-color': '#'+onBoardingSlide.backgroundColor,'color':'#'+onBoardingSlide.contentColor}">
+            <ion-toolbar *ngIf="hasAction(onBoardingSlide.identifier)">
+                <ion-buttons center>
+                    <button (click)="openActionUrl(onBoardingSlide.identifier)" ion-button style="color:inherit">Action</button>
+                </ion-buttons>
+            </ion-toolbar>
             <img src="{{onBoardingSlide.icon}}" style="width: 100px; height: 100px;" />
             <h1>{{onBoardingSlide.title}}</h1>
             <h2>{{onBoardingSlide.subTitle}}</h2>
@@ -37,8 +42,9 @@
         </button> -->
 
     </ion-slides>
-    <button type="submit" ion-button icon-only class="swiper-button-prev" (click)="prevSlide()"> <ion-icon color="light"  name="md-arrow-dropleft"></ion-icon></button>
-    <button type="submit" ion-button icon-only class="swiper-button-next" (click)="nextSlide()"><ion-icon color="light" name="md-arrow-dropright"></ion-icon></button>
+
+    <button *ngIf="onBoardingSlides" [hidden]="isHidePrevButton" type="submit" ion-button icon-only class="swiper-button-prev" (click)="prevSlide()"> <ion-icon color="light"  name="md-arrow-dropleft"></ion-icon></button>
+    <button *ngIf="onBoardingSlides" type="submit" ion-button icon-only class="swiper-button-next" (click)="nextSlide()"><ion-icon color="light" name="md-arrow-dropright"></ion-icon></button>
     <div [hidden]="onBoardingSlides || errMsg">
         <ion-spinner></ion-spinner>
         <h4>Loading ..... please wait</h4>
@@ -47,6 +53,7 @@
         <h2>Error</h2>
         <h4>{{errMsg}}</h4>
     </div>
+    <!-- </div> -->
 </ion-content>
 
 <!-- [hidden]="slides.isBeginning()" -->

@@ -17,14 +17,16 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class OnBoardingProvider {
 
+  onBoardingBody=null;
   constructor(public http: Http ,
     private processHttpmsgProvider:ProcessHttpmsgProvider) {
     console.log('Hello OnBoardingProvider Provider');
   }
 
   getOnBoardings():Observable<OnBoardingSlide[]>{
-    return this.http.get(baseURL)
-    .map(res => {return this.processHttpmsgProvider.extractData(res)})
+    return this.onBoardingBody?this.onBoardingBody:
+     this.http.get(baseURL)
+    .map(res => { this.onBoardingBody =this.processHttpmsgProvider.extractData(res); return this.onBoardingBody })
     .catch(error=>{return this.processHttpmsgProvider.handleError(error)})
   }
 

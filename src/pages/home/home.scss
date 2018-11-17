@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-page-home {
+.page-home {
+    // .no-scroll .scroll-content {
+    //     overflow: hidden;
+    // }
+    // [ion-fixed] {
+    //     height: 100%;
+    //     width: 100%;
+    // }
+    // .slide-zoom {
+    //     height: 100%;
+    // }this make toolbar in the top
+    .toolbar-background {
+        background: transparent;
+        border-color: transparent;
+    }
     .swiper-button-next,
     .swiper-button-prev {
         background-image: none;

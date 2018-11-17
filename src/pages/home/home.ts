@@ -1,3 +1,4 @@
+import { SlidesActionsMap } from './../../serverconnect/slideactionmap';
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController,Slides } from 'ionic-angular';
 import { OnBoardingSlide } from '../../classes/onboardingslide';
@@ -11,6 +12,7 @@ export class HomePage implements OnInit {
 @ViewChild(Slides) slides: Slides;
   onBoardingSlides : OnBoardingSlide[];
   errMsg:string;
+  isHidePrevButton:boolean = true;
   constructor(public navCtrl: NavController,
     private onBoardingProvider: OnBoardingProvider) {
 
@@ -19,15 +21,27 @@ export class HomePage implements OnInit {
   ngOnInit():void{
     this.onBoardingProvider.getOnBoardings()
     .subscribe(slides => {this.onBoardingSlides = slides; console.table(slides)} ,
-      errMsge => this.errMsg = this.errMsg);
+      errMsg => this.errMsg = errMsg);
+  }
+  
+  slideChanged(){
+    this.isHidePrevButton = this.slides.isBeginning();
+    
   }
   prevSlide(){
     console.log('prev')
-    this.slides.slidePrev();
+    this.slides.slidePrev(400);
   }
 
   nextSlide(){
     console.log('next')
-    this.slides.slideNext();
+    this.slides.slideNext(400);
+    console.log(this.slides.isEnd());
+  }
+  hasAction(identifier:string):boolean{
+    return SlidesActionsMap.has(identifier);
+  }
+  openActionUrl(identifier:string){
+    console.log(SlidesActionsMap.get(identifier));
   }
 }
