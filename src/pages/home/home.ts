@@ -43,7 +43,7 @@ export class HomePage implements OnInit {
     return SlidesActionsMap.has(identifier);
   }
   openActionUrl(identifier:string){
-    this.inAppBrowser.create(SlidesActionsMap.get(identifier)).show();
+    this.inAppBrowser.create(SlidesActionsMap.get(identifier),'_blank').show();
     console.log(SlidesActionsMap.get(identifier));
   }
 }
