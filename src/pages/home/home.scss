@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 page-home {
     .swiper-button-next,
     .swiper-button-prev {
@@ -15,4 +16,24 @@ page-home {
     .swiper-pagination-bullet-active {
         background: white;
     }
+    // .custom-slide {
+    //     // padding: 16pt;
+    //     // margin: unset;
+    //     // margin-block-start: unset;
+    //     // margin-block-end: unset;
+    //     // margin-inline-start: unset;
+    //     // margin-inline-end: unset;
+    //     .title {
+    //         // padding: 36pt;
+    //         // margin: inherit;
+    //     }
+    //     .subtitle {
+    //         // padding: 28pt;
+    //         // margin: inherit;
+    //     }
+    //     .description {
+    //         // padding: 16pt;
+    //         // margin: inherit;
+    //     }
+    // }
 }
