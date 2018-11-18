@@ -4,6 +4,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController,Slides } from 'ionic-angular';
 import { OnBoardingSlide } from '../../classes/onboardingslide';
 import { OnBoardingProvider } from '../../providers/on-boarding/on-boarding';
+// import { providerDef } from '@angular/core/src/view';
 
 @Component({
   selector: 'page-home',
@@ -37,6 +38,7 @@ export class HomePage implements OnInit {
   nextSlide(){
     console.log('next')
     this.slides.slideNext(400);
+    //this.slides.paginationBulletRender()
     console.log(this.slides.isEnd());
   }
   hasAction(identifier:string):boolean{

@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-.page-home {
+page-home {
     // .no-scroll .scroll-content {
     //     overflow: hidden;
     // }
@@ -10,6 +10,10 @@
     // .slide-zoom {
     //     height: 100%;
     // }this make toolbar in the top
+    $anroidOnBoardingAndroidFont: 'Roboto Condensed', sans-serif;
+    .content-md {
+        font-family: $anroidOnBoardingAndroidFont;
+    }
     .toolbar-background {
         background: transparent;
         border-color: transparent;
@@ -19,7 +23,9 @@
         background-image: none;
         background-color: transparent;
         top: unset;
-        bottom: -10px;
+        // bottom: -10px;
+        bottom: 5px;
+        height: 20px;
         -webkit-box-shadow: none;
         box-shadow: none;
     }
