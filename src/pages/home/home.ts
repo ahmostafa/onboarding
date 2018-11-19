@@ -8,7 +8,7 @@ import { WelcomescreenPage } from '../welcomescreen/welcomescreen';
 import { NativePageTransitions,NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import {Storage} from '@ionic/storage';
 import { Subscription } from 'rxjs/Subscription';
-// import { providerDef } from '@angular/core/src/view';
+
 
 @Component({
   selector: 'page-home',
@@ -63,10 +63,7 @@ export class HomePage implements OnInit {
     this.isHidePrevButton = this.slides.isBeginning();
     this.isLastSlide = this.slides.isEnd();// because this is called after the slide already change  //&&this.slides.getActiveIndex()=== (this.slides.length()-1)
     console.log('this.lastSlideIndexBeforeLeaveValue '+this.lastSlideIndexBeforeLeaveValue);
-    // if(!this.lastSlideIndexBeforeLeaveValue || this.lastSlideIndexBeforeLeaveValue===-1){
-    //   this.storage.set(this.lastSlideIndexBeforeLeaveKey,this.slides.getActiveIndex())
-    //   console.log(`lastSlideIndexBeforeLeaveKey ${this.lastSlideIndexBeforeLeaveKey} index ${this.slides.getActiveIndex()} `)
-    // }
+ 
   }
   prevSlide(){
     console.log('prev')
@@ -76,7 +73,6 @@ export class HomePage implements OnInit {
   nextSlide(){
     console.log('next')
     this.slides.slideNext(400);
-    //this.slides.paginationBulletRender()
     console.log(this.slides.getPreviousIndex());
     
     if( this.isLastSlide){
@@ -93,40 +89,16 @@ export class HomePage implements OnInit {
     inAppBrowserRef.show();
     inAppBrowserRef.on('loaderror').subscribe(event=>{
       inAppBrowserRef.executeScript({code:"alert('Error in load:"+SlidesActionsMap.get(identifier) +" "+event.message +" ');"})
-      // inAppBrowserRef.executeScript({code:"document.body.innerHTML+='<div style='position:absolute;width:100%;height:100%;opacity:0.3;z-index:100;background:#000;'>"+event.message+"</div>'"})
+
     })
-    // inAppBrowserRef.on('loaderror').subscribe(event=>{
-    //   let scriptErrorMesssage = this.createMsg('Sorry we cannot open that page. Message from the server is: '
-    //   + event.message);
-    //   inAppBrowserRef.executeScript({code:scriptErrorMesssage});
-    // })
-   // inAppBrowserRef.show();
+    
     
     
     console.log(SlidesActionsMap.get(identifier));
   }
 
-   createMsg(msg) {
-    return 'var div = document.createElement("div");'
-         + 'div.style.position = "absolute";'
-         + 'div.style.top = "50%";'
-         + 'div.style.left = "50%";'
-         + 'div.style.width = "100px";'
-         + 'div.style.height = "100px";'
-         + 'div.style.color = "#f00";'
-         + 'div.innerHTML = "' + msg + '";'
-         + 'document.appendChild(div);'
-  }
-//   executeScriptCallBack(params) {
+ 
 
-//     if (params[0] == null) {
-
-//         $('#status-message').text(
-//            "Sorry we couldn't open that page. Message from the server is : '"
-//            + params.message + "'");
-//     }
-
-// }
   goToLastSlide(){
     setTimeout(() => {
       this.slides.slideTo(this.lastSlideIndexBeforeLeaveValue); 
@@ -134,19 +106,5 @@ export class HomePage implements OnInit {
     }, 500); // this time out to slide to after the slides is ready
   
   }
-  ionViewWillEnter(){
-    console.log('will enter');
-  }
-  ionViewDidEnter(){
-    console.log('did enter');
-  }
   
-  ionViewWillLeave(){
-   console.log('will leave');
-  // this.storage.set(this.lastSlideIndexBeforeLeaveKey,this.slides.getActiveIndex());
-   console.log(this.slides.getActiveIndex());
-  }
-  ionViewDidLeave(){
-    console.log('did leave');
-  }
 }
