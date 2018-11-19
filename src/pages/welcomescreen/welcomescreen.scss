@@ -11,12 +11,12 @@ page-welcomescreen {
     .toolbar-title-md {
         font-family: $anroidWelcomescreenAndroidFont;
     }
-    // .toolbar-md {
-    //     .back-button-md {
-    //         display: none;
-    //     }
-    //     .title-md {
-    //         padding-left: 50px;
-    //     }
-    // }
+    .toolbar-md {
+        .back-button-md {
+            display: none;
+        }
+        .title-md {
+            padding-left: 50px;
+        }
+    }
 }
