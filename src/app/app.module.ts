@@ -13,6 +13,7 @@ import { HttpModule } from '@angular/http';
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 import { WelcomescreenPage } from '../pages/welcomescreen/welcomescreen';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
   imports: [
     BrowserModule,
     HttpModule,
+    IonicStorageModule.forRoot(),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
