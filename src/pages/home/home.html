@@ -49,11 +49,11 @@
 
     <button *ngIf="onBoardingSlides" [hidden]="isHidePrevButton" type="submit" ion-button icon-only class="swiper-button-prev" (click)="prevSlide()"> <ion-icon color="#f0f0f0"  name="md-arrow-dropleft"></ion-icon></button>
     <button *ngIf="onBoardingSlides" type="submit" ion-button icon-only class="swiper-button-next" (click)="nextSlide()"><ion-icon color="light" name="md-arrow-dropright"></ion-icon></button>
-    <div [hidden]="onBoardingSlides || errMsg">
+    <div class="centered-div" [hidden]="onBoardingSlides || errMsg">
         <ion-spinner></ion-spinner>
         <h4>Loading ..... please wait</h4>
     </div>
-    <div *ngIf="errMsg">
+    <div class="centered-div" *ngIf="errMsg">
         <h2>Error</h2>
         <h4>{{errMsg}}</h4>
     </div>
