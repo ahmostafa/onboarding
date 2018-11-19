@@ -5,6 +5,7 @@ import { NavController,Slides } from 'ionic-angular';
 import { OnBoardingSlide } from '../../classes/onboardingslide';
 import { OnBoardingProvider } from '../../providers/on-boarding/on-boarding';
 import { WelcomescreenPage } from '../welcomescreen/welcomescreen';
+import { NativePageTransitions,NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 // import { providerDef } from '@angular/core/src/view';
 
 @Component({
@@ -17,7 +18,14 @@ export class HomePage implements OnInit {
   errMsg:string;
   isHidePrevButton:boolean = true;
   isLastSlide:boolean=false;
-  constructor(public navCtrl: NavController,
+   transitionOptions : NativeTransitionOptions = {
+    duration:400,
+    androiddelay:0,
+    iosdelay:0,
+    href:null
+    
+  }
+  constructor(public navCtrl: NavController,private nativePageTransitions: NativePageTransitions,
     private onBoardingProvider: OnBoardingProvider, private inAppBrowser: InAppBrowser) {
 
   }
@@ -44,7 +52,8 @@ export class HomePage implements OnInit {
     console.log(this.slides.getPreviousIndex());
     
     if( this.isLastSlide){
-      this.navCtrl.push(WelcomescreenPage);
+      this.nativePageTransitions.fade(this.transitionOptions);
+      this.navCtrl.push(WelcomescreenPage,null,{animate:false});
     }
     console.log(this.slides.isEnd());
   }

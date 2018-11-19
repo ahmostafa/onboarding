@@ -12,6 +12,7 @@ import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-htt
 import { HttpModule } from '@angular/http';
 import {InAppBrowser} from '@ionic-native/in-app-browser';
 import { WelcomescreenPage } from '../pages/welcomescreen/welcomescreen';
+import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { WelcomescreenPage } from '../pages/welcomescreen/welcomescreen';
     {provide:'BaseURL',useValue: baseURL},
     OnBoardingProvider,
     ProcessHttpmsgProvider,
-    InAppBrowser
+    InAppBrowser,
+    NativePageTransitions
   ]
 })
 export class AppModule {}
