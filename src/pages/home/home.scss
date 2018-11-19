@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 page-home {
+    @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
     // .no-scroll .scroll-content {
     //     overflow: hidden;
     // }
@@ -17,6 +17,16 @@ page-home {
     .toolbar-background {
         background: transparent;
         border-color: transparent;
+    }
+    // .slide-container {
+    //     overflow: auto;
+    // }
+    ion-slide {
+        // height: initial;
+        .slide-zoom {
+            height: 60vh;
+            overflow-y: auto;
+        } // this is to make the slide-zoom scroll able (this solution may not final)
     }
     .swiper-button-next,
     .swiper-button-prev {

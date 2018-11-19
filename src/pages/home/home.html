@@ -22,13 +22,17 @@
             <h1>Slide 3</h1>
         </ion-slide> -->
 
-        <ion-slide *ngFor="let onBoardingSlide of onBoardingSlides" class="slides-container" [ngStyle]="{'background-color': '#'+onBoardingSlide.backgroundColor,'color':'#'+onBoardingSlide.contentColor}">
-            <ion-toolbar [hidden]="!hasAction(onBoardingSlide.identifier)">
+        <ion-slide *ngFor="let onBoardingSlide of onBoardingSlides" class="slide-container" [ngStyle]="{'background-color': '#'+onBoardingSlide.backgroundColor,'color':'#'+onBoardingSlide.contentColor}">
+            <!-- <ion-toolbar [hidden]="!hasAction(onBoardingSlide.identifier)">
                 <ion-buttons center>
                     <button (click)="openActionUrl(onBoardingSlide.identifier)" ion-button style="color:inherit">Action</button>
                 </ion-buttons>
-            </ion-toolbar>
+            </ion-toolbar> -->
+
             <img src="{{onBoardingSlide.icon}}" style="width: 100px; height: 100px;" />
+            <ion-buttons center [hidden]="!hasAction(onBoardingSlide.identifier)">
+                <button (click)="openActionUrl(onBoardingSlide.identifier)" ion-button style="color:inherit">Action</button>
+            </ion-buttons>
             <h1>{{onBoardingSlide.title}}</h1>
             <h2>{{onBoardingSlide.subTitle}}</h2>
             <p>{{onBoardingSlide.description}}</p>

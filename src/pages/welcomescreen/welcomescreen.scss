@@ -1,0 +1,8 @@
+page-welcomescreen {
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+    $anroidWelcomescreenAndroidFont: 'Roboto', sans-serif;
+    .content-md,
+    .toolbar-title-md {
+        font-family: $anroidWelcomescreenAndroidFont;
+    }
+}

@@ -4,6 +4,7 @@ import { Component, ViewChild, OnInit } from '@angular/core';
 import { NavController,Slides } from 'ionic-angular';
 import { OnBoardingSlide } from '../../classes/onboardingslide';
 import { OnBoardingProvider } from '../../providers/on-boarding/on-boarding';
+import { WelcomescreenPage } from '../welcomescreen/welcomescreen';
 // import { providerDef } from '@angular/core/src/view';
 
 @Component({
@@ -15,6 +16,7 @@ export class HomePage implements OnInit {
   onBoardingSlides : OnBoardingSlide[];
   errMsg:string;
   isHidePrevButton:boolean = true;
+  isLastSlide:boolean=false;
   constructor(public navCtrl: NavController,
     private onBoardingProvider: OnBoardingProvider, private inAppBrowser: InAppBrowser) {
 
@@ -28,7 +30,7 @@ export class HomePage implements OnInit {
   
   slideChanged(){
     this.isHidePrevButton = this.slides.isBeginning();
-    
+    this.isLastSlide = this.slides.isEnd();// because this is called after the slide already change  //&&this.slides.getActiveIndex()=== (this.slides.length()-1)
   }
   prevSlide(){
     console.log('prev')
@@ -39,6 +41,11 @@ export class HomePage implements OnInit {
     console.log('next')
     this.slides.slideNext(400);
     //this.slides.paginationBulletRender()
+    console.log(this.slides.getPreviousIndex());
+    
+    if( this.isLastSlide){
+      this.navCtrl.push(WelcomescreenPage);
+    }
     console.log(this.slides.isEnd());
   }
   hasAction(identifier:string):boolean{

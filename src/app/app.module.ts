@@ -11,11 +11,13 @@ import { OnBoardingProvider } from '../providers/on-boarding/on-boarding';
 import { ProcessHttpmsgProvider } from '../providers/process-httpmsg/process-httpmsg';
 import { HttpModule } from '@angular/http';
 import {InAppBrowser} from '@ionic-native/in-app-browser';
+import { WelcomescreenPage } from '../pages/welcomescreen/welcomescreen';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    WelcomescreenPage,
   ],
   imports: [
     BrowserModule,
@@ -25,7 +27,8 @@ import {InAppBrowser} from '@ionic-native/in-app-browser';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    WelcomescreenPage
   ],
   providers: [
     StatusBar,
