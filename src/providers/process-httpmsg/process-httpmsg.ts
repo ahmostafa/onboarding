@@ -34,6 +34,9 @@ export class ProcessHttpmsgProvider {
       const body = error.json();
       const err = body.error || JSON.stringify(body);
       errorMsg = `${error.status} - ${error.statusText||''} ${err}`;
+      // if(error.status===0 ){
+      //   errorMsg = `${error.status} - ${error.statusText||''} ${err} No internet connection`;
+      // }// can be added here all the errors list with messages as shown here
     }
     else{
       errorMsg = error.message? error.message : error.toString();
