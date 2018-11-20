@@ -18,13 +18,14 @@ page-home {
         background: transparent;
         border-color: transparent;
     }
-    // .slide-container {
-    //     overflow: auto;
-    // }
+    .slide-container {
+        // overflow: auto;
+        padding: 16px;
+    }
     ion-slide {
         // height: initial;
         .slide-zoom {
-            height: 60vh;
+            height: 65vh;
             overflow-y: auto;
         } // this is to make the slide-zoom scroll able (this solution may not final)
     }
@@ -45,6 +46,12 @@ page-home {
     }
     .swiper-pagination-bullet-active {
         background: white;
+    }
+    .swiper-slide {
+        img {
+            width: 100px;
+            height: 100px;
+        }
     }
     // .custom-slide {
     //     // padding: 16pt;

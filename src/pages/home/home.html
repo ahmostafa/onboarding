@@ -29,13 +29,13 @@
                 </ion-buttons>
             </ion-toolbar> -->
 
-            <img src="{{onBoardingSlide.icon}}" style="width: 100px; height: 100px;" />
+            <img src="{{onBoardingSlide.icon}}" />
             <ion-buttons center [hidden]="!hasAction(onBoardingSlide.identifier)">
                 <button (click)="openActionUrl(onBoardingSlide.identifier)" ion-button style="color:inherit">Action</button>
             </ion-buttons>
-            <h1>{{onBoardingSlide.title}}</h1>
-            <h2>{{onBoardingSlide.subTitle}}</h2>
-            <p>{{onBoardingSlide.description}}</p>
+            <h1 class="slide-title">{{onBoardingSlide.title}}</h1>
+            <h2 class="slide-subtitle">{{onBoardingSlide.subTitle}}</h2>
+            <p class="slide-desc">{{onBoardingSlide.description}}</p>
         </ion-slide>
 
         <!-- <button type="submit" float-left ion-button color="primary" class="swiper-button-prev" (click)="prev()"></button>
